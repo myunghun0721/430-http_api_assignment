@@ -43,7 +43,7 @@
         console.log(obj);
       }
       else{
-        content.innerHTML += `${obj.message}`;
+        content.innerHTML += `<p>${obj.message}</p>`;
         if(obj.id){
           console.log(`<response><message>${obj.message}</message><id>${obj.id}</id></response>`);
         }
