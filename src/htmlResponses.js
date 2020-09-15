@@ -12,7 +12,7 @@ const getStyle = (request, response) => {
   response.writeHead(200, { 'Content-Type': 'text/css' });
   response.write(style);
   response.end();
-}
+};
 module.exports = {
   getIndex,
   getStyle,

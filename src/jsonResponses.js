@@ -4,13 +4,11 @@ const respondJSON = (request, response, status, object) => {
   response.end();
 };
 
-
 const success = (request, response) => {
   const responseJSON = {
     message: 'This is a successful response',
   };
 
-  const  xml = '<response><message>This is a successful response</message></response>'
   respondJSON(request, response, 200, responseJSON);
 };
 
@@ -29,12 +27,12 @@ const badRequest = (request, response, params) => {
   return respondJSON(request, response, 200, responseJSON);
 };
 
-const unauthorized = (request, response, params) =>{
+const unauthorized = (request, response, params) => {
   const responseJSON = {
     message: 'This request has the required parameters',
   };
 
-  if (params.id == 'unauthorized' || params.loggedIn !=='yes') {
+  if (params.id === 'unauthorized' || params.loggedIn !== 'yes') {
     responseJSON.message = 'Missing logged in query parameter set to yes';
     responseJSON.id = 'unauthorized';
 
@@ -42,14 +40,14 @@ const unauthorized = (request, response, params) =>{
   }
 
   return respondJSON(request, response, 200, responseJSON);
-}
+};
 
 const forbidden = (request, response, params) => {
   const responseJSON = {
     message: 'This request has the required parameters',
   };
 
-  if (params.id == 'forbidden' || params.valid !=='true') {
+  if (params.id === 'forbidden' || params.valid !== 'true') {
     responseJSON.message = 'You do not have access to this content';
     responseJSON.id = 'forbidden';
 
@@ -57,14 +55,14 @@ const forbidden = (request, response, params) => {
   }
 
   return respondJSON(request, response, 200, responseJSON);
-}
+};
 
 const internal = (request, response, params) => {
   const responseJSON = {
     message: 'This request has the required parameters',
   };
 
-  if (params.id == 'internal' || params.valid !=='true') {
+  if (params.id === 'internal' || params.valid !== 'true') {
     responseJSON.message = 'Internal Server Error. Something went wrong.';
     responseJSON.id = 'internal';
 
@@ -72,14 +70,14 @@ const internal = (request, response, params) => {
   }
 
   return respondJSON(request, response, 200, responseJSON);
-}
+};
 
 const notImplemented = (request, response, params) => {
   const responseJSON = {
     message: 'This request has the required parameters',
   };
 
-  if (params.id == 'notImplemented' || params.valid !=='true') {
+  if (params.id === 'notImplemented' || params.valid !== 'true') {
     responseJSON.message = 'A get request for this page has not been implemented yet. Check again later for updated content.';
     responseJSON.id = 'notImplemented';
 
@@ -87,7 +85,7 @@ const notImplemented = (request, response, params) => {
   }
 
   return respondJSON(request, response, 200, responseJSON);
-}
+};
 
 const notFound = (request, response) => {
   const responseJSON = {

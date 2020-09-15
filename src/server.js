@@ -10,18 +10,17 @@ const urlStruct = {
   '/': htmlHandler.getIndex,
   '/success': jsonHandler.success,
   '/badRequest': jsonHandler.badRequest,
-  '/forbidden' : jsonHandler.forbidden,
-  '/internal' : jsonHandler.internal,
-  '/notImplemented' : jsonHandler.notImplemented,
-  '/unauthorized' : jsonHandler.unauthorized,
-  '/style.css' : htmlHandler.getStyle,
+  '/forbidden': jsonHandler.forbidden,
+  '/internal': jsonHandler.internal,
+  '/notImplemented': jsonHandler.notImplemented,
+  '/unauthorized': jsonHandler.unauthorized,
+  '/style.css': htmlHandler.getStyle,
   notFound: jsonHandler.notFound,
 };
 
 const onRequest = (request, response) => {
   const parsedUrl = url.parse(request.url);
   const params = query.parse(parsedUrl.query);
-
 
   if (urlStruct[parsedUrl.pathname]) {
     urlStruct[parsedUrl.pathname](request, response, params);
